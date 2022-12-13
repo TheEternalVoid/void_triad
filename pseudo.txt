@@ -1,0 +1,74 @@
+Import dependencies
+
+Initialize game window
+
+Create Player class:
+	Player class should be able to:
+	Generate deck
+	select card to play and where to place it on grid
+	have points
+
+Create AI class:
+	Generate deck
+	Select card to play and where to place it on grid
+	have points
+
+Game logic:
+
+Start game -
+1. Display board -
+2. Display score
+   | |
+  ------
+   | |
+  ------
+   | |
+
+2. Randomly choose who to go first
+3. Play alternates between turns.
+4. Turn consists of - 
+ 4.1 Player selects card to play
+ 4.2 Player selects where to place card
+ 4.3 If any side of a card is greater than a card it is adjacent to touching side then the opposing card becomes the players card
+ 4.4 repeat for each case where 4.3 is true
+ 4.5 Update points to reflect how many cards are "owned" by player
+ 4.6 if no more spaces in grid are avaiable start end game
+ 4.7 during end game determine which player has more points - they are victor
+ 4.8 Ask if player would like to play again?
+ 	4.8.1 if no close game
+ 	4.8.2 if yes clear board, set score to 0, regenerate decks, start at step 2
+ 4.9 Since game is not over repeat step 4 for next player
+
+ The board will be a list of lists.
+
+ [], [], [],
+
+ [], [], [],
+
+ [], [], []
+
+
+ A card will be a list containing 4 numbers.
+
+ A card index 0 will be its top number
+ A card index 1 will be its right number
+ A card index 2 will be its bottom number
+ A card index 3 will be its left number
+
+ -----------
+|     0     |
+|           |
+|3         1|
+|           |
+|     2     |
+ -----------
+
+ During a turn the player will choose which space in the list to place their card. This can not be done in spaces that are not empty
+
+ [x] [] []
+
+ [x] [] []
+
+ [] [x] [] (can not place in sections that have an x for example)
+
+ If an opposing player places a card adjacent to another controlled by the opposing player check if the placing players card's touching side is greater than the current card on board.
